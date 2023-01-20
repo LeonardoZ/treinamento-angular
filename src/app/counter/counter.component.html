@@ -1,8 +1,16 @@
 <h1>O Contador</h1>
 
 <p>
-  O valor é <strong>{{ counter }}</strong>
+  O valor atual é <strong>{{ counter }}</strong>
 </p>
 
 <button (click)="increment()">Incrementa</button>
 <button (click)="decrement()">Decrementa</button>
+
+<hr />
+
+<h3>Números anteriores...</h3>
+<p *ngIf="previousNumbers.length === 0">Nenhum número anterior</p>
+<ul>
+  <li *ngFor="let num of previousNumbers">{{ num }}</li>
+</ul>
