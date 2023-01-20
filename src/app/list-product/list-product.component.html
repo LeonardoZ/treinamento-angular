@@ -1,0 +1,15 @@
+<p>Listagem de Produtos</p>
+<dl>
+  <dt>Total</dt>
+  <dd>{{ productResponse.total }}</dd>
+  <dt>Limit</dt>
+  <dd>{{ productResponse.limit }}</dd>
+  <dt>Skip</dt>
+  <dd>{{ productResponse.skip }}</dd>
+
+  <ul *ngFor="let product of productResponse.products">
+    <li>
+      <strong>{{ product.title }}:</strong> {{ product.description }}
+    </li>
+  </ul>
+</dl>

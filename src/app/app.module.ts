@@ -6,17 +6,13 @@ import { AppComponent } from './app.component';
 import { CounterComponent } from './counter/counter.component';
 import { EvenOddDisplayComponent } from './even-odd-display/even-odd-display.component';
 
+import { HttpClientModule } from '@angular/common/http';
+import { ListProductComponent } from './list-product/list-product.component';
+
 @NgModule({
-  declarations: [
-    AppComponent,
-    CounterComponent,
-    EvenOddDisplayComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  declarations: [AppComponent, CounterComponent, EvenOddDisplayComponent, ListProductComponent],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
