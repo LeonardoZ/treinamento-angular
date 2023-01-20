@@ -1,0 +1,7 @@
+.alert {
+  width:fit-content;
+}
+
+.alert-danger {
+  color: rgb(243, 113, 113);
+}

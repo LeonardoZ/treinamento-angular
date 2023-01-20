@@ -1,0 +1,76 @@
+<h1>Formulário de Cadastro de Usuário</h1>
+
+<form [formGroup]="formGroup" (ngSubmit)="onSave()">
+  <fieldset>
+    <div>
+      <label>Login</label>
+      <input type="text" formControlName="login" />
+      <div
+        *ngIf="login?.invalid && (login?.dirty || login?.touched)"
+        class="alert alert-danger"
+      >
+        <div *ngIf="login?.errors?.['required']">Login é obrigatório.</div>
+        <div *ngIf="login?.errors?.['maxlength']">
+          Login não deve possuir mais que 16 caracteres.
+        </div>
+      </div>
+    </div>
+    <div>
+      <label>Nome</label>
+      <input type="text" formControlName="name" />
+      <div
+        *ngIf="name?.invalid && (name?.dirty || name?.touched)"
+        class="alert alert-danger"
+      >
+        <div *ngIf="name?.errors?.['required']">Nome é obrigatório.</div>
+        <div *ngIf="name?.errors?.['maxlength']">
+          Nome não deve possuir mais que 30 caracteres.
+        </div>
+      </div>
+    </div>
+    <div>
+      <label>Senha</label>
+      <input
+        type="password"
+        autocomplete="password"
+        formControlName="new_password"
+      />
+      <div
+        *ngIf="
+          new_password?.invalid &&
+          (new_password?.dirty || new_password?.touched)
+        "
+        class="alert alert-danger"
+      >
+        <div *ngIf="new_password?.errors?.['required']">
+          Senha é obrigatório.
+        </div>
+        <div *ngIf="new_password?.errors?.['minlength']">
+          Senha não deve possuir menos que 3 caracteres.
+        </div>
+      </div>
+    </div>
+    <div>
+      <label>Repita a Senha</label>
+      <input
+        type="password"
+        autocomplete="off"
+        formControlName="same_password"
+      />
+      <div
+        *ngIf="
+          same_password?.invalid &&
+          (same_password?.dirty || same_password?.touched)
+        "
+        class="alert alert-danger"
+      >
+        <div *ngIf="same_password?.errors?.['samePasswordError']">
+          Senhas devem ser iguais!.
+        </div>
+      </div>
+    </div>
+    <div>
+      <button [disabled]="!formGroup.valid" type="submit">Cadastrar</button>
+    </div>
+  </fieldset>
+</form>
