@@ -1,4 +1,4 @@
-import { Component, Input, ViewChild } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-even-odd-display',
@@ -6,6 +6,7 @@ import { Component, Input, ViewChild } from '@angular/core';
   styleUrls: ['./even-odd-display.component.css'],
 })
 export class EvenOddDisplayComponent {
+  // valor será recebido via seletor <app-even-odd-display value="..">
   @Input('value')
   value: number = 0;
 
