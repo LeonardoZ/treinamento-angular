@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { ProductService } from '../product.service';
-import { ProductResponseDto } from '../product.dto';
+import { ProductService } from './product.service';
+import { ProductResponseDto } from './product.dto';
 
 @Component({
   selector: 'app-list-product',
