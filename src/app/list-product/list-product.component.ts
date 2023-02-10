@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { ProductService } from '../product.service';
-import { ProductResponseDto } from '../product.dto';
+import { ProductService } from './product.service';
+import { ProductResponseDto } from './product.dto';
 
 @Component({
   selector: 'app-list-product',
@@ -14,8 +14,9 @@ export class ListProductComponent {
     limit: 0,
     products: [],
   };
-
+  // Dependency Injection
   constructor(productService: ProductService) {
+    // Subscribe no Observable
     productService.getProducts().subscribe({
       next: (productResponseDto: ProductResponseDto) => {
         this.productResponse = productResponseDto;
