@@ -11,7 +11,7 @@ export class CounterComponent {
   // propriedades da Classe
   counter = 0;
 
-  // metadados da classe
+  // métodos da classe
   increment() {
     this.counter += 1;
   }
