@@ -9,6 +9,7 @@ import { samePasswordErrorValidator } from '../same-password-error-validator';
 })
 export class AddUserComponent {
   formGroup = new FormGroup({
+    // Validators são validações comuns que podem ser aplicadas aos componentes
     login: new FormControl('', [Validators.required, Validators.maxLength(16)]),
     name: new FormControl('', [Validators.required, Validators.maxLength(30)]),
     new_password: new FormControl('', [
@@ -16,16 +17,11 @@ export class AddUserComponent {
       Validators.minLength(3),
     ]),
     same_password: new FormControl('', [
+      // Possível criar Validators customizados
       samePasswordErrorValidator('new_password'),
     ]),
   });
-
-  constructor() {
-    this.formGroup.controls.new_password.valueChanges.subscribe(() => {
-      this.formGroup.controls.same_password.updateValueAndValidity();
-    });
-  }
-
+  // Getters que permitem acessar o valor do componente no FormGroup diretamente
   get name() {
     return this.formGroup.get('name');
   }
@@ -41,5 +37,11 @@ export class AddUserComponent {
 
   onSave() {
     console.log(this.formGroup.value);
+  }
+
+  constructor() {
+    this.formGroup.controls.new_password.valueChanges.subscribe(() => {
+      this.formGroup.controls.same_password.updateValueAndValidity();
+    });
   }
 }
